@@ -5,7 +5,7 @@ Simulador de colisão em etiquetas RFID, utilizando Java para a simulação e Py
 
 Protocolos implementados
 ------
-<li>Schoute</li>
+* Schoute
 
 Uso
 ------
