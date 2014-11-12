@@ -1,7 +1,11 @@
-Projeto de [Sistemas de Comunicação](http://cin.ufpe.br/~pasg/if740/if740.html)
+Simulador de colisões em sistemas RFID
 ======
 
-Simulador de colisão com etiquetas RFID, utilizando Java para a simulação e Python para geração de gráficos.
+Simulador de colisão em etiquetas RFID, utilizando Java para a simulação e Python, utilizando [matplotlib](http://matplotlib.org/) e [numpy](http://www.numpy.org/) para geração de gráficos.
+
+Protocolos implementados
+------
+<li>Schoute</li>
 
 Uso
 ------
