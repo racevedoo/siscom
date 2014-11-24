@@ -3,6 +3,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 def plot(medida,titulo,nome):
 	fig = plt.figure()
@@ -12,12 +13,13 @@ def plot(medida,titulo,nome):
 	plt.ylabel('Slots')
 	plt.xlabel('Etiquetas')
 	plt.savefig(nome+'.png')
+name = sys.argv[1]
 tags_all = [100,200,300,400,500,600,700,800,900,1000]
 media_totais = []
 media_vazios = []
 media_colisao = []
 for tags in tags_all:
-	totais,vazios,colisao = np.loadtxt('schoute'+str(tags)+'.csv',delimiter=',',unpack=True)
+	totais,vazios,colisao = np.loadtxt(name+str(tags)+'.csv',delimiter=',',unpack=True)
 	media_totais.append(np.mean(totais))
 	media_vazios.append(np.mean(vazios))
 	media_colisao.append(np.mean(colisao))

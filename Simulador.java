@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.util.Random;
 
 public class Simulador {
-	static final int QNTSLOTS = 64;
+	static final int QNTSLOTS = 64, SCHOUTE=0;
 	static int qntTags, qntSlots = QNTSLOTS, qntColisoes = 0,
 			qntSucessos = 0, qntVazios = 0, qntTotais = qntSlots, qntTotaisColisoes = 0;
 	static int[] slots = new int[qntSlots];
 	static boolean cont = true;
 
-	public static void leitura() {
+	public static void leitura(int method) {
 		Random random = new Random();
 		for (int i = 0; i < qntTags; i++) {
 			int a = random.nextInt(qntSlots);
@@ -31,7 +31,7 @@ public class Simulador {
 		}
 		qntTotaisColisoes += qntColisoes;
 		if (qntColisoes > 0) {
-			qntSlots = schoute();//mudar so o metodo de calcular
+			if(method == SCHOUTE)qntSlots = schoute();//mudar so o metodo de calcular
 			qntTotais += qntSlots;
 			qntSucessos = qntColisoes = 0;
 			if (qntSlots > slots.length) {
@@ -62,13 +62,20 @@ public class Simulador {
 	}
 	
 	public static void main(String[] args){
+		String name = args[0];
+		int method = -1;
+		if(name.equalsIgnoreCase("schoute"))method = SCHOUTE;
+		else {
+			System.err.println("Invalid method");
+			System.exit(1);
+		}
 		for(int qnt_tags = 100;qnt_tags<=1001;qnt_tags+=100){
-			File f = new File("schoute"+qnt_tags+".csv");
+			File f = new File(name+qnt_tags+".csv");
 			int contador = 1;
 			StringBuffer impressao = new StringBuffer();
 			while (contador <= 1000) {
 				while (cont) {
-					leitura();
+					leitura(method);
 				}
 				String toAppend = qntTotais + "," + qntVazios + "," + qntTotaisColisoes + "\r\n";
 				impressao.append(toAppend);
