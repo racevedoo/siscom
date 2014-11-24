@@ -22,6 +22,6 @@ for tags in tags_all:
 	media_vazios.append(np.mean(vazios))
 	media_colisao.append(np.mean(colisao))
 
-plot(media_totais, dp_totais, 'Slots totais', 'totais')
-plot(media_colisao, dp_colisao, 'Slots em colisao', 'colisao')
-plot(media_vazios, dp_vazios, 'Slots vazios', 'vazios')
+plot(media_totais, 'Slots totais', 'totais')
+plot(media_colisao, 'Slots em colisao', 'colisao')
+plot(media_vazios, 'Slots vazios', 'vazios')
