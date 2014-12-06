@@ -44,9 +44,9 @@ public class SimuladorRFID {
 				if(method == SCHOUTE) x = schoute(etiquetas);
 				else if(method == CHEN) x = chen(etiquetas);
 				else x = lowerBound(etiquetas);
-				colisoes += x[3];
-				vazio += x[2];
-				slots += x[1];
+				colisoes = x[3];
+				vazio = x[2];
+				slots = x[1];
 				sb.append(slots + "," + vazio + "," + colisoes + "\r\n");
 			}
 			try {
