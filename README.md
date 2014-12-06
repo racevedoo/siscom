@@ -11,6 +11,10 @@ Protocolos implementados
 
 Uso
 ------
-Em desenvolvimento
+Linux:
+
+```
+./run.sh
+```
 
 
