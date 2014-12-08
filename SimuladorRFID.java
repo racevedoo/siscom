@@ -263,57 +263,7 @@ public class SimuladorRFID {
 		return retorno;
 	}	
 
-	static BigInteger fat2(int vazio, int sucesso, int colisao) {
-		int[] a = {vazio, sucesso, colisao};
-		Arrays.sort(a);
-		int l = (vazio + sucesso + colisao);
-		Vector<Integer> cima = new Vector<Integer>();
-		Vector<Integer> baixo = new Vector<Integer>();
-		Vector<Integer> cima2 = new Vector<Integer>();
-		Vector<Integer> baixo2 = new Vector<Integer>();
-		for (int i = l; i > a[2]; --i) {
-			cima.add(i);
-		}
-		for (int i = 2; i <= a[1]; ++i) {
-			baixo.add(i);
-		} 	
-		for (int i = 2; i <= a[0]; ++i) {
-			baixo.add(i);
-		}
-		for (int n:cima) {
-			cima2.addAll(fatorar(n));
-		}
-		for(int n:baixo) {
-			baixo2.addAll(fatorar(n));
-		}
-
-		for (int i = 0; i < baixo2.size(); ++i) {
-			if (cima2.contains(baixo2.get(i))) {
-				cima2.remove(baixo2.get(i));
-				baixo2.remove(i);
-				i--;
-			}
-		}
-
-		BigInteger c = BigInteger.ONE;
-		BigInteger b = BigInteger.ONE;
-
-
-		for (int n : cima2) {
-			c = c.multiply(BigInteger.valueOf(n));
-		}
-		
-		if (baixo.size() == 0) {
-			return c;
-		}
-		
-		for (int n : baixo2) {
-			b = b.multiply(BigInteger.valueOf(n));
-		}
-		return c.divide(b);
-
-	}
-
+	
 
 	static Vector<Vector<Integer>> fat(int vazio, int sucesso, int colisao) {
 		Vector<Vector<Integer>> retorno = new Vector<Vector<Integer>>();
