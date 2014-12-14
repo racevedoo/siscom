@@ -1,5 +1,5 @@
 #!/bin/bash
-methods=("lowerbound" "schoute" "chen")
+methods=("lowerbound" "chen" "schoute" "ilcm")
 javac SimuladorRFID.java
 if [ $? -ne 0 ]; then
 	echo "Compile failed"
@@ -18,5 +18,5 @@ done
 
 python generatechart.py
 eog totais.png
-eog vazios.png
-eog colisao.png
+#eog vazios.png
+#eog colisao.png

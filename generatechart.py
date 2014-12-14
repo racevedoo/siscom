@@ -11,16 +11,17 @@ def plot(medida,titulo,nome):
 	plt.plot(tags_all,medida[0],label='Chen')
 	plt.plot(tags_all,medida[1],label='Schoute')
 	plt.plot(tags_all,medida[2],label='Lower-Bound')
+	plt.plot(tags_all,medida[3],label='ILCM')
 	plt.title(titulo)
 	plt.legend(loc='upper left')
 	plt.ylabel(titulo)
 	plt.xlabel('Etiquetas')
 	plt.savefig(nome+'.png')
-names = ['chen','schoute','lowerbound']
+names = ['chen','schoute','lowerbound','ilcm']
 tags_all = [100,200,300,400,500,600,700,800,900,1000]
-media_totais = [[],[],[]]
-media_vazios = [[],[],[]]
-media_colisao = [[],[],[]]
+media_totais = [[],[],[],[]]
+media_vazios = [[],[],[],[]]
+media_colisao = [[],[],[],[]]
 for i in range(0,len(names)):
 	name = names[i]
 	for tags in tags_all:
